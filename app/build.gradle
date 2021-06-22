@@ -23,7 +23,7 @@ android {
 
         applicationId "ndk.kada"
 
-        minSdk 23
+        minSdk 22
         targetSdk 30
 
         versionCode 1
@@ -110,6 +110,8 @@ dependencies {
 
     implementation project(path: ':Utils14:common14')
     implementation project(path: ':Utils1:common1')
+
+    implementation project(path: ':Resources:common')
 
     testImplementation 'junit:junit:4.13.2'
 

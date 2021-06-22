@@ -26,9 +26,9 @@ public class LauncherActivity extends ActivityWithContexts {
 
         //TODO : getMultiColorHorizontalLinearGradientForTextView
         Shader shaderInboxSolutions = new LinearGradient(0, 0, textPaintInboxSolutions.measureText(getString(R.string.inbox_solutions)), textViewInboxSolutions.getTextSize(), new int[]{
-                getColor(R.color.kada_launcher_gradient_start),
-                getColor(R.color.kada_launcher_gradient_center),
-                getColor(R.color.kada_launcher_gradient_end)
+                getResources().getColor(R.color.red),
+                getResources().getColor(R.color.sandyBrown),
+                getResources().getColor(R.color.rose)
         }, null, Shader.TileMode.CLAMP);
         textViewInboxSolutions.getPaint().setShader(shaderInboxSolutions);
 

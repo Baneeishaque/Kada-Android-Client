@@ -14,7 +14,8 @@
 
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Kada.NoActionBar" />
 
         <activity
             android:name=".LauncherActivity"

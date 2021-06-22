@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Kada</string>
+    <string name="inbox_solutions">INBOX SOLUTIONS</string>
+    <string name="todo">TODO</string>
 </resources>

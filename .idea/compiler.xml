@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Kada.app" target="11" />
+      <module name="Kada.DebugUtils.common" target="11" />
+      <module name="Kada.Resources.common" target="11" />
+      <module name="Kada.Utils1.common1" target="11" />
+      <module name="Kada.Utils11.common11" target="11" />
+      <module name="Kada.Utils14.common14" target="11" />
+      <module name="Kada.Utils16.common16" target="11" />
+      <module name="Kada.Utils16.tests16" target="11" />
+      <module name="Kada.Utils17.common17" target="11" />
+      <module name="Kada.Utils19.common19" target="11" />
+      <module name="Kada.Utils19.tests19" target="11" />
+      <module name="Kada.Utils3.common3" target="11" />
+      <module name="Kada.Utils4.common4" target="11" />
+      <module name="Kada.Utils7.common7" target="11" />
+      <module name="Kada.Utils9.common9" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

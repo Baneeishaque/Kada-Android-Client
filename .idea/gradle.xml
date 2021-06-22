@@ -10,6 +10,33 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/DebugUtils" />
+            <option value="$PROJECT_DIR$/DebugUtils/common" />
+            <option value="$PROJECT_DIR$/JavaUtils" />
+            <option value="$PROJECT_DIR$/Resources" />
+            <option value="$PROJECT_DIR$/Utils1" />
+            <option value="$PROJECT_DIR$/Utils11" />
+            <option value="$PROJECT_DIR$/Utils14" />
+            <option value="$PROJECT_DIR$/Utils16" />
+            <option value="$PROJECT_DIR$/Utils17" />
+            <option value="$PROJECT_DIR$/Utils19" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Resources/common" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/Utils9/Utils7/Utils4/Utils3/Utils1/common1" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/Utils9/Utils7/Utils4/Utils3/common3" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/Utils9/Utils7/Utils4/common4" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/Utils9/Utils7/common7" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/Utils9/common9" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/Utils11/common11" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/Utils14/common14" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/common16" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/Utils16/tests16" />
+            <option value="$PROJECT_DIR$/Utils19/Utils17/common17" />
+            <option value="$PROJECT_DIR$/Utils19/common19" />
+            <option value="$PROJECT_DIR$/Utils19/tests19" />
+            <option value="$PROJECT_DIR$/Utils3" />
+            <option value="$PROJECT_DIR$/Utils4" />
+            <option value="$PROJECT_DIR$/Utils7" />
+            <option value="$PROJECT_DIR$/Utils9" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>

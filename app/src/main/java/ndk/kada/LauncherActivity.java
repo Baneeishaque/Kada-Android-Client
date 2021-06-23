@@ -33,7 +33,8 @@ public class LauncherActivity extends KadaActivity {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
 
-            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
+            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDemoActivity.class);
 
         }, 3000);
     }

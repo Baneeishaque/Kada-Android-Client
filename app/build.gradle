@@ -120,6 +120,8 @@ dependencies {
 
     implementation project(path: ':Utils19:common19')
 
+    implementation 'com.mikhaellopez:circleview:1.4.0'
+
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

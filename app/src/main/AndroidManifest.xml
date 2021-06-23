@@ -13,7 +13,8 @@
         tools:replace="android:allowBackup">
         <activity
             android:name=".LocationDemoActivity"
-            android:exported="true" />
+            android:exported="false"
+            android:theme="@style/Theme.Kada.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"

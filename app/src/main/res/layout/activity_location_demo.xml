@@ -6,4 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".LocationDemoActivity">
 
+    <TextView
+        android:id="@+id/textViewNowOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Now order from\nmany more\nstores as far as,\n5 km away"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circleView" />
+
+    <android.widget.Button
+        android:id="@+id/buttonSendOtp"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Order Now"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewNowOrder" />
+
+    <com.mikhaellopez.circleview.CircleView
+        android:id="@+id/circleView"
+        android:layout_width="216dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        app:cv_color="@color/dawnPink"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

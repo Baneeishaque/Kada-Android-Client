@@ -113,6 +113,9 @@ dependencies {
 
     implementation project(path: ':Resources:common')
 
+    implementation project(path: ':Utils16:common16')
+    implementation 'org.javatuples:javatuples:1.2'
+
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

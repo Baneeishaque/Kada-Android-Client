@@ -1,7 +1,6 @@
 package ndk.kada;
 
 import android.os.Bundle;
-import android.view.View;
 
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;

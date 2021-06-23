@@ -1,14 +1,12 @@
 package ndk.kada;
 
-import ndk.utils_android14.ApplicationActivity;
+import ndk.utils_android14.ApplicationActivity14;
 
-public class KadaActivity extends ApplicationActivity {
+public class KadaActivity extends ApplicationActivity14 {
 
-   KadaSpecification kadaSpecification=new KadaSpecification();
+    @Override
+    public String configureApplicationTag() {
 
-   @Override
-   public String configureApplicationTag() {
-
-      return kadaSpecification.applicationName;
-   }
+        return "Kada";
+    }
 }

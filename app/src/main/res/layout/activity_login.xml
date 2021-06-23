@@ -6,98 +6,116 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageViewKadaLauncher"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/kada_launcher"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ProgressBar
 
-    <TextView
-        android:id="@+id/textViewLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Login"
-        android:textAllCaps="true"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewKadaLauncher" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/roboto_thin"
-        android:text="by continuing, you agree to our\nTerms of Service | Privacy Policy | Content Policy"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <android.widget.Button
-        android:id="@+id/buttonSendOtp"
-        android:layout_width="260dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
-        android:fontFamily="@font/roboto_regular"
-        android:text="Send OTP"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraintLayoutPhoneNumber" />
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutPhoneNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewLogin">
 
-        <EditText
-            android:id="@+id/editTextPhoneNumber"
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageViewKadaLauncher"
             android:layout_width="200dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="0dp"
-            android:background="@drawable/_60dp_right_rounded_rose_corner"
-            android:fontFamily="@font/roboto_regular"
-            android:hint="Phone Number"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:maxLength="10"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/editTextPhoneNumberCountryCode"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/kada_launcher"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/editTextPhoneNumberCountryCode"
-            android:layout_width="54dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="0dp"
-            android:background="@drawable/_60dp_left_rounded_corner_with_red_sandy_brown_rose_gradient"
-            android:enabled="false"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingStart="12dp"
-            android:paddingEnd="0dp"
-            android:text="+91"
-            android:textColor="@color/white"
+        <TextView
+            android:id="@+id/textViewLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Login"
+            android:textAllCaps="true"
+            android:textSize="24sp"
             android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewKadaLauncher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/roboto_thin"
+            android:text="by continuing, you agree to our\nTerms of Service | Privacy Policy | Content Policy"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/editTextPhoneNumber"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <android.widget.Button
+            android:id="@+id/buttonSendOtp"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Send OTP"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraintLayoutPhoneNumber" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewLogin">
+
+            <EditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="200dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="0dp"
+                android:background="@drawable/_60dp_right_rounded_rose_corner"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Phone Number"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="10"
+                android:padding="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/editTextPhoneNumberCountryCode"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextPhoneNumberCountryCode"
+                android:layout_width="54dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/_60dp_left_rounded_corner_with_red_sandy_brown_rose_gradient"
+                android:enabled="false"
+                android:fontFamily="@font/roboto_regular"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:text="+91"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/editTextPhoneNumber"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

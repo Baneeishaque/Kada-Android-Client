@@ -29,6 +29,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        useLibrary 'org.apache.http.legacy'
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -115,6 +117,8 @@ dependencies {
 
     implementation project(path: ':Utils16:common16')
     implementation 'org.javatuples:javatuples:1.2'
+
+    implementation project(path: ':Utils19:common19')
 
     testImplementation 'junit:junit:4.13.2'
 

@@ -12,10 +12,16 @@
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".StorePortalHomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LocationDecidedActivity"
+            android:exported="true" />
+        <activity
             android:name=".LocationRequestActivity"
             android:exported="true" />
         <activity
-            android:name=".LocationDemoActivity"
+            android:name=".SurroundingsPlottedActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
@@ -25,6 +31,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationDemoActivity">
+    tools:context=".SurroundingsPlottedActivity">
 
     <TextView
         android:id="@+id/textViewNowOrder"
@@ -14,14 +14,14 @@
         android:fontFamily="@font/roboto_bold"
         android:text="Now order from\nmany more\nstores as far as,\n5 km away"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/circleView" />
 
     <android.widget.Button
-        android:id="@+id/buttonSendOtp"
+        android:id="@+id/buttonOrderNow"
         android:layout_width="260dp"
         android:layout_height="48dp"
         android:layout_marginTop="36dp"

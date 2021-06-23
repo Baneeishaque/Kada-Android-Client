@@ -7,12 +7,9 @@ import android.os.Handler;
 import android.text.TextPaint;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import ndk.utils_android14.ActivityUtils14;
-import ndk.utils_android14.ActivityWithContexts;
 
-public class LauncherActivity extends ActivityWithContexts {
+public class LauncherActivity extends KadaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

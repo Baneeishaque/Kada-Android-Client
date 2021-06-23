@@ -1,10 +1,8 @@
 package ndk.kada;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class LocationDemoActivity extends AppCompatActivity {
+public class LocationDemoActivity extends KadaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

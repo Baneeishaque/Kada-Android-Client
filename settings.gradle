@@ -7,6 +7,7 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
+
 rootProject.name = "Kada"
 include ':app'
 

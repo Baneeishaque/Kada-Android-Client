@@ -37,8 +37,9 @@ public class LauncherActivity extends KadaActivity {
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDemoActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationRequestActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
-//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
-            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, AddStoreProductActivity.class);
+            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, AddStoreProductActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreStockActivity.class);
 
         }, 500);
     }

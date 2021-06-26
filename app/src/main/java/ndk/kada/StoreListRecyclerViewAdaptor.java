@@ -26,7 +26,7 @@ public class StoreListRecyclerViewAdaptor extends RecyclerView.Adapter<StoreList
     @Override
     public StoreListRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new StoreListRecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.store_list_item, parent, false));
+        return new StoreListRecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_store, parent, false));
     }
 
     @Override

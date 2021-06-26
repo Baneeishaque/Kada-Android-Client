@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".StoreStockActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddStoreProductActivity"
             android:exported="true" />
         <activity

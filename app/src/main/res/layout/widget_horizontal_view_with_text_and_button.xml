@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/constraintLayoutLearn"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="40dp"
+    android:background="@drawable/_180dp_rounded_corner"
+    app:cardCornerRadius="180dp"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewCongratulations">
+
+    <TextView
+        android:id="@+id/textViewLearn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center"
+        android:text="Learn from your
+\nnearest kada "
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonTryNow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/buttonTryNow"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Try Now"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/textViewLearn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

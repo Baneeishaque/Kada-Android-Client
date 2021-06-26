@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="16dp"
+        tools:context=".AddStoreProductActivity">
+
+        <EditText
+            android:id="@+id/ediTextItemName"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Item Name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayoutLearn" />
+
+        <EditText
+            android:id="@+id/ediTextPrice"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Price"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ediTextItemName" />
+
+        <EditText
+            android:id="@+id/ediTextCategory"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Enter Category (Optional)"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ediTextPrice" />
+
+        <EditText
+            android:id="@+id/ediTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Add Item Description (Optional)"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ediTextCategory" />
+
+        <EditText
+            android:id="@+id/ediTextVariant"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Add Variant (Optional)"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ediTextDescription" />
+
+        <android.widget.Button
+            android:id="@+id/buttonAddItem"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Add Item"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ediTextVariant" />
+
+        <include
+            layout="@layout/widget_horizontal_view_with_text_and_button"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="40dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

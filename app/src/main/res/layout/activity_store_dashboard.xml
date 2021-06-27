@@ -75,7 +75,7 @@
             <android.widget.Button
                 android:id="@+id/buttonAddYour"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
@@ -94,7 +94,7 @@ PRODUCTS"
             <android.widget.Button
                 android:id="@+id/buttonTakeOrder"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/_60dp_rounded_corner_with_dove_gray"

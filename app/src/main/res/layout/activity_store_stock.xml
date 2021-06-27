@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="32dp">
 
         <TextView
             android:id="@+id/textViewAvailable"
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/_20dp_rounded_silver_chalice_corner"
             app:layout_constraintLeft_toLeftOf="parent"

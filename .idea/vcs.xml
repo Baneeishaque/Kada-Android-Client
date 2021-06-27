@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/DebugUtils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/DebugUtils/Resources" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JavaUtils" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Utils19" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Utils19/Utils17" vcs="Git" />

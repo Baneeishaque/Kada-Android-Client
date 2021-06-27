@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,6 +24,9 @@ public class StoreStockActivity extends KadaActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_stock);
+
+        EditText editTextSearch = findViewById(R.id.editTextSearch);
+        editTextSearch.setText("Search products");
 
         ConstraintLayout constraintLayoutShareToWhatsapp = findViewById(R.id.constraintLayoutShareToWhatsapp);
         constraintLayoutShareToWhatsapp.setOnClickListener(v -> {

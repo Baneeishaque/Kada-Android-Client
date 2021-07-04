@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.util.Pair;
 
 import java.util.Random;
 
@@ -23,9 +24,14 @@ public class LoginActivity extends KadaActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        EditText editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
+        if (BuildConfig.DEBUG) {
+
+            editTextPhoneNumber.setText("9446827218");
+        }
+
         ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonSendOtp, v -> {
 
-            EditText editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
             org.javatuples.Pair<Boolean, EditText> validationResult = ValidationUtils16.mobileNumberCheckEditTextWithRequestFocus(org.javatuples.Pair.with(editTextPhoneNumber, "Invalid Phone Number..."));
             if (validationResult.getValue0()) {
 
@@ -34,11 +40,12 @@ public class LoginActivity extends KadaActivity {
                 int otp = 100000 + rnd.nextInt(900000);
                 applicationLogUtils.debugOnGui("Otp : " + otp);
 
+                //TODO : Extract to Utils
                 ProgressBar progressBar = findViewById(R.id.progressBar);
                 ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
                 ProgressBarUtils1.showProgress(true, currentActivityContext, progressBar, constraintLayout);
 
-                new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), editTextPhoneNumber.getText().toString(), "Otp send success...", "Otp send failed, try again...", () -> ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationRequestActivity.class), () -> {
+                new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), editTextPhoneNumber.getText().toString(), "Otp send success...", "Otp send failed, try again...", () -> ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, OtpActivity.class, new Pair[]{new Pair<>("otp", otp), new Pair<>("mobileNumber", editTextPhoneNumber.getText().toString())}), () -> {
                 });
             }
         });

@@ -33,11 +33,12 @@ public class LauncherActivity extends KadaActivity {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
 
-//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
+            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, OtpActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDemoActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationRequestActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
-            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, AddStoreProductActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreStockActivity.class);
 

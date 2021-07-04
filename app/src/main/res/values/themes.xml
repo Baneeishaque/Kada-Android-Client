@@ -16,5 +16,6 @@
 
     <style name="Theme.Kada.NoActionBar" parent="Theme.Kada">
         <item name="windowNoTitle">true</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
     </style>
 </resources>

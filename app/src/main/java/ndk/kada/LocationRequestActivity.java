@@ -73,7 +73,7 @@ public class LocationRequestActivity extends KadaActivity {
                         org.javatuples.Pair<Boolean, EditText> validationResult = ValidationUtils16.nonEmptyCheckEditTextPairs(editTextErrorPairs);
                         if (validationResult.getValue0()) {
 
-                            String userMobileNumber = getIntent().getStringExtra("mobileNumber");
+                            String userMobileNumber = getIntent().getStringExtra("userMobileNumber");
                             String userName = editTextUserName.getText().toString().trim();
                             String userLatitude = String.valueOf(userLocation.getLatitude());
                             String userLongitude = String.valueOf(userLocation.getLongitude());
@@ -89,7 +89,7 @@ public class LocationRequestActivity extends KadaActivity {
                                     if (jsonObject.getString("status").equals("0")) {
 
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
-                                        SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("userId"))});
+                                        SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("userId")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
                                         ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
 
                                     } else if (jsonObject.getString("status").equals("1")) {

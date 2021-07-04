@@ -19,6 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android1.ProgressBarUtils1;
 import ndk.utils_android14.ActivityUtils14;
+import ndk.utils_android16.SharedPreferenceUtils16;
 import ndk.utils_android19.SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk;
 
 public class OtpActivity extends KadaActivity {
@@ -43,7 +44,9 @@ public class OtpActivity extends KadaActivity {
                 if (otpView.getText().toString().equals(otp)) {
 
                     Toast.makeText(getApplicationContext(), "Otp authentication success", Toast.LENGTH_LONG).show();
-                    ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, LocationRequestActivity.class, new Pair[]{new Pair("mobileNumber", getIntent().getStringExtra("mobileNumber"))});
+
+                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new Pair[]{new Pair<>("isLoggedUserAvailable", String.valueOf(true)), new Pair<>("loggedUserCurrentStatus", "afterOtp")});
+                    ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, LocationRequestActivity.class, new Pair[]{new Pair<>("userMobileNumber", getIntent().getStringExtra("userMobileNumber"))});
 
                 } else {
 
@@ -59,7 +62,7 @@ public class OtpActivity extends KadaActivity {
             ProgressBar progressBar = findViewById(R.id.progressBar);
             ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
             ProgressBarUtils1.showProgress(true, currentActivityContext, progressBar, constraintLayout);
-            new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), getIntent().getStringExtra("mobileNumber"), "Otp send success...", "Otp send failed, try again...", () -> {
+            new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), getIntent().getStringExtra("userMobileNumber"), "Otp send success...", "Otp send failed, try again...", () -> {
             }, () -> {
             });
         });

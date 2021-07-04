@@ -50,6 +50,16 @@ public class StorePortalHomeActivity extends KadaActivity {
         recyclerViewStoreList.setAdapter(new StoreListRecyclerViewAdaptor(currentActivityContext, stores));
 
         FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
-        floatingActionButtonAddStore.setOnClickListener(v -> ActivityUtils1.startActivityForClass(currentActivityContext, ShopDetailsActivity.class));
+        floatingActionButtonAddStore.setOnClickListener(v -> {
+
+            if (Boolean.parseBoolean(applicationSharedPreferences.getString("isUserStoreAlreadyAvailable", String.valueOf(false)))) {
+
+                ActivityUtils1.startActivityForClass(currentActivityContext, StoreDashboardActivity.class);
+
+            } else {
+
+                ActivityUtils1.startActivityForClass(currentActivityContext, ShopDetailsActivity.class);
+            }
+        });
     }
 }

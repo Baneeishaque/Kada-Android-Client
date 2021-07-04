@@ -20,10 +20,13 @@ import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
 import ndk.utils_android14.HttpApiSelectTask14;
 import ndk.utils_android14.HttpApiSelectTaskWrapper14;
+import ndk.utils_android16.SharedPreferenceUtils16;
 import ndk.utils_android16.ValidationUtils16;
 import ndk.utils_android19.ExceptionUtils19;
 
 public class ShopDetailsActivity extends KadaActivity {
+
+    StringBuilder selectedCategoryIds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +104,7 @@ public class ShopDetailsActivity extends KadaActivity {
                 } else {
 
                     List<Long> selectedCategories = multiSelectSpinnerWithSearch.getSelectedIds();
-                    StringBuilder selectedCategoryIds = new StringBuilder();
+                    selectedCategoryIds = new StringBuilder();
                     for (int i = 0; i < selectedCategories.size(); i++) {
 
                         long selectCategoryId = selectedCategories.get(i);
@@ -116,14 +119,20 @@ public class ShopDetailsActivity extends KadaActivity {
                     }
                     applicationLogUtils.debugOnGui("Selected Category IDs : " + selectedCategoryIds);
 
-                    HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertShopApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("shopName", editTextShopName.getText().toString()), new androidx.core.util.Pair<>("shopOwnerId", applicationSharedPreferences.getString("userId", "0")), new androidx.core.util.Pair<>("shopLocationLatitude", applicationSharedPreferences.getString("userLatitude", "0")), new androidx.core.util.Pair<>("shopLocationLongitude", applicationSharedPreferences.getString("userLongitude", "0")), new androidx.core.util.Pair<>("shopCategories", selectedCategoryIds)}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
+                    String userShopName = editTextShopName.getText().toString();
+                    String userShopLocationLatitude = applicationSharedPreferences.getString("userLatitude", "0");
+                    String userShopLocationLongitude = applicationSharedPreferences.getString("userLongitude", "0");
+
+                    HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertShopApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("shopName", userShopName), new androidx.core.util.Pair<>("shopOwnerId", applicationSharedPreferences.getString("userId", "0")), new androidx.core.util.Pair<>("shopLocationLatitude", userShopLocationLatitude), new androidx.core.util.Pair<>("shopLocationLongitude", userShopLocationLongitude), new androidx.core.util.Pair<>("shopCategories", selectedCategoryIds)}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
 
                         try {
 
                             if (jsonObject.getString("status").equals("0")) {
 
                                 ToastUtils1.longToast(currentApplicationContext, "Shop Added Successfully...");
-                                ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, ShopItemAdditionActivity.class);
+                                SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", editTextShopName.getText().toString()), new androidx.core.util.Pair<>("userShopLocationLatitude", userShopLocationLatitude), new androidx.core.util.Pair<>("userShopLocationLongitude", userShopLocationLongitude), new androidx.core.util.Pair<>("userShopCategories", selectedCategoryIds), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true))});
+
+                                ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
 
                             } else if (jsonObject.getString("status").equals("1")) {
 

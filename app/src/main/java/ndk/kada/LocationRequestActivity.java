@@ -1,6 +1,5 @@
 package ndk.kada;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -12,13 +11,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import org.javatuples.Pair;
+import org.json.JSONException;
 
 import java.util.ArrayList;
 
 import ndk.utils_android1.ProgressBarUtils1;
+import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
+import ndk.utils_android14.HttpApiSelectTask14;
+import ndk.utils_android14.HttpApiSelectTaskWrapper14;
 import ndk.utils_android16.ValidationUtils16;
+import ndk.utils_android19.ExceptionUtils19;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
@@ -34,6 +38,12 @@ public class LocationRequestActivity extends KadaActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_request);
+
+        EditText editTextUserName = findViewById(R.id.editTextUserName);
+        if (BuildConfig.DEBUG) {
+
+            editTextUserName.setText("Banee Ishaque K");
+        }
 
         ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonUseCurrent, v -> {
 
@@ -55,8 +65,6 @@ public class LocationRequestActivity extends KadaActivity {
                         applicationLogUtils.debugOnGui("Location : " + userLocation.toString());
                         ProgressBarUtils1.showProgress(false, currentActivityContext, progressBar, constraintLayout);
 
-                        EditText editTextUserName = findViewById(R.id.editTextUserName);
-
                         ArrayList<org.javatuples.Pair<EditText, String>> editTextErrorPairs = new ArrayList<>();
                         editTextErrorPairs.add(Pair.with(editTextUserName, "Please Enter Your Name..."));
 
@@ -65,8 +73,26 @@ public class LocationRequestActivity extends KadaActivity {
 
                             applicationLogUtils.debugOnGui("API Data : User - " + getIntent().getStringExtra("mobileNumber") + ", Name : " + editTextUserName.getText().toString() + ", Latitude : " + userLocation.getLatitude() + ", Longitude : " + userLocation.getLongitude());
 
-                            //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
-//                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertUserAccountApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userName", editTextUserName.getText().toString()), new androidx.core.util.Pair<>("userMobileNumber", getIntent().getStringExtra("mobileNumber")), new androidx.core.util.Pair<>("userLocationLatitude", userLocation.getLatitude()), new androidx.core.util.Pair<>("userLocationLongitude", userLocation.getLongitude())}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
+
+                                try {
+
+                                    if (jsonObject.getString("status").equals("0")) {
+
+//                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
+                                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+
+                                    } else {
+
+                                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
+                                    }
+
+                                } catch (JSONException jsonException) {
+
+                                    ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+                                }
+
+                            });
 
                         } else {
 

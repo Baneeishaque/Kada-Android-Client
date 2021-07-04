@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UserNameActivity extends AppCompatActivity {
+public class ShopItemAdditionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_name);
+        setContentView(R.layout.activity_shop_item_addition);
     }
 }

@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 
 import org.javatuples.Pair;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
 import ndk.utils_android14.HttpApiSelectTask14;
 import ndk.utils_android14.HttpApiSelectTaskWrapper14;
+import ndk.utils_android16.SharedPreferenceUtils16;
 import ndk.utils_android16.ValidationUtils16;
 import ndk.utils_android19.ExceptionUtils19;
 
@@ -71,22 +73,35 @@ public class LocationRequestActivity extends KadaActivity {
                         org.javatuples.Pair<Boolean, EditText> validationResult = ValidationUtils16.nonEmptyCheckEditTextPairs(editTextErrorPairs);
                         if (validationResult.getValue0()) {
 
-                            applicationLogUtils.debugOnGui("API Data : User - " + getIntent().getStringExtra("mobileNumber") + ", Name : " + editTextUserName.getText().toString() + ", Latitude : " + userLocation.getLatitude() + ", Longitude : " + userLocation.getLongitude());
+                            String userMobileNumber = getIntent().getStringExtra("mobileNumber");
+                            String userName = editTextUserName.getText().toString().trim();
+                            String userLatitude = String.valueOf(userLocation.getLatitude());
+                            String userLongitude = String.valueOf(userLocation.getLongitude());
 
-                            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertUserAccountApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userName", editTextUserName.getText().toString()), new androidx.core.util.Pair<>("userMobileNumber", getIntent().getStringExtra("mobileNumber")), new androidx.core.util.Pair<>("userLocationLatitude", userLocation.getLatitude()), new androidx.core.util.Pair<>("userLocationLongitude", userLocation.getLongitude())}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
+                            applicationLogUtils.debugOnGui("API Data : User - " + userMobileNumber + ", Name : " + userName + ", Latitude : " + userLatitude + ", Longitude : " + userLongitude);
+
+                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
+
+                            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertUserAccountApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userLocationLatitude", userLatitude), new androidx.core.util.Pair<>("userLocationLongitude", userLongitude)}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
 
                                 try {
 
                                     if (jsonObject.getString("status").equals("0")) {
 
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
+                                        SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("userId"))});
                                         ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+
+                                    } else if (jsonObject.getString("status").equals("1")) {
+
+                                        //TODO : Toast With Logging Process
+                                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
+                                        applicationLogUtils.debugOnGui("Server Error : " + jsonObject.getString("error"));
 
                                     } else {
 
                                         ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
                                     }
-
                                 } catch (JSONException jsonException) {
 
                                     ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);

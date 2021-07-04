@@ -52,4 +52,14 @@ public class KadaApiUtils extends ApiUtils {
 
         return getApiMethodEndpointUrl("insertUserAccount");
     }
+
+    String getInsertShopApiUrl() {
+
+        return getApiMethodEndpointUrl("insertShop");
+    }
+
+    String getShopCategoriesApiUrl() {
+
+        return getApiMethodEndpointUrl("getShopCategories");
+    }
 }

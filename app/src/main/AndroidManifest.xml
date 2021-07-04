@@ -12,7 +12,10 @@
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".UserNameActivity"
+            android:name=".ShopItemAdditionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ShopDetailsActivity"
             android:exported="true" />
         <activity
             android:name=".OtpActivity"

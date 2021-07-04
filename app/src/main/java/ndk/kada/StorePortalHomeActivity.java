@@ -6,9 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import ndk.utils_android1.ActivityUtils1;
 
 public class StorePortalHomeActivity extends KadaActivity {
 
@@ -43,5 +48,8 @@ public class StorePortalHomeActivity extends KadaActivity {
         stores.add(new StoreModel("Georgettante Kada", 3, 0.45F));
 
         recyclerViewStoreList.setAdapter(new StoreListRecyclerViewAdaptor(currentActivityContext, stores));
+
+        FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
+        floatingActionButtonAddStore.setOnClickListener(v -> ActivityUtils1.startActivityForClass(currentActivityContext, ShopDetailsActivity.class));
     }
 }

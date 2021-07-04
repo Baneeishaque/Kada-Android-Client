@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationRequestActivity">
+    tools:context=".ShopDetailsActivity">
 
     <ProgressBar
 
@@ -22,22 +22,22 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editTextUserName"
+            android:id="@+id/editTextShopName"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/_60dp_rounded_rose_corner"
             android:fontFamily="@font/roboto_regular"
-            android:hint="Your Name"
+            android:hint="Shop Name"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:paddingLeft="20dp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"
-            android:paddingLeft="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewEnterYour" />
+            app:layout_constraintTop_toBottomOf="@id/textViewEnterShop" />
 
         <ImageView
             android:id="@+id/imageViewKadaLauncher"
@@ -49,58 +49,69 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewEnterYour"
+        <RadioGroup
+            android:id="@+id/radioGroupSameLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewIsThe">
+
+            <RadioButton
+                android:id="@+id/radioButtonYes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:checked="true"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/radioButtonNo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:text="No" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewSelectYour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_medium"
-            android:text="Enter Your Name"
-            android:textSize="24sp"
+            android:text="Select Your Product Category"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewHiNice" />
+            app:layout_constraintTop_toBottomOf="@id/radioGroupSameLocation" />
 
         <TextView
-            android:id="@+id/textViewHiNice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Hi, nice to met you!"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageViewKadaLauncher" />
-
-        <TextView
-            android:id="@+id/textViewSetYour"
+            android:id="@+id/textViewIsThe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Set your location to start exploring\nstores around you"
+            android:text="Is the location same as given before?"
             android:textAlignment="center"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextUserName" />
-
-        <TextView
-            android:id="@+id/textViewSetYourManually"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="40dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Set your location manually"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonUseCurrent" />
+            app:layout_constraintTop_toBottomOf="@id/editTextShopName" />
+
+        <TextView
+            android:id="@+id/textViewEnterShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Enter Shop Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewKadaLauncher" />
 
         <TextView
             android:id="@+id/textViewWeOnly"
@@ -115,19 +126,29 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <android.widget.Button
-            android:id="@+id/buttonUseCurrent"
+            android:id="@+id/buttonNext"
             android:layout_width="260dp"
             android:layout_height="48dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
             android:fontFamily="@font/roboto_regular"
-            android:text="Use Current Location"
-            android:textAllCaps="false"
+            android:text="Next"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewSetYour" />
+            app:layout_constraintTop_toBottomOf="@id/multiSpinnerSearchCategories" />
+
+        <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
+            android:id="@+id/multiSpinnerSearchCategories"
+            android:layout_width="260dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/_60dp_rounded_rose_corner"
+            app:hintText="Multi Item Selection"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewSelectYour" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

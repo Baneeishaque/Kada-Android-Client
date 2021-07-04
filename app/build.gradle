@@ -117,6 +117,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.1.2'
+    implementation 'com.github.pratikbutani:MultiSelectSpinner:1.0.1'
 
     implementation project(path: ':Utils14:common14')
     implementation project(path: ':Utils1:common1')

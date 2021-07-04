@@ -45,8 +45,12 @@ public class LoginActivity extends KadaActivity {
                 ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
                 ProgressBarUtils1.showProgress(true, currentActivityContext, progressBar, constraintLayout);
 
-                new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), editTextPhoneNumber.getText().toString(), "Otp send success...", "Otp send failed, try again...", () -> ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, OtpActivity.class, new Pair[]{new Pair<>("otp", otp), new Pair<>("mobileNumber", editTextPhoneNumber.getText().toString())}), () -> {
+//                new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), editTextPhoneNumber.getText().toString(), "Otp send success...", "Otp send failed, try again...", () -> ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, OtpActivity.class, new Pair[]{new Pair<>("otp", otp), new Pair<>("mobileNumber", editTextPhoneNumber.getText().toString())}), () -> {
+//                });
+
+                new SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk(applicationSpecification.applicationName, currentActivityContext, progressBar, constraintLayout).parseResponseOfSendSmsFromFast2SmsNetworkTask(String.valueOf(otp), editTextPhoneNumber.getText().toString(), "Otp send success...", "Otp send failed, try again...", () -> ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, LocationRequestActivity.class, new Pair[]{new Pair<>("otp", otp), new Pair<>("mobileNumber", editTextPhoneNumber.getText().toString())}), () -> {
                 });
+
             }
         });
     }

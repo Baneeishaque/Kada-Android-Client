@@ -43,7 +43,7 @@ public class OtpActivity extends KadaActivity {
                 if (otpView.getText().toString().equals(otp)) {
 
                     Toast.makeText(getApplicationContext(), "Otp authentication success", Toast.LENGTH_LONG).show();
-                    ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, LocationRequestActivity.class, new Pair[]{});
+                    ActivityUtils14.startActivityWithStringExtrasAndFinish(currentActivityContext, LocationRequestActivity.class, new Pair[]{new Pair("mobileNumber", getIntent().getStringExtra("mobileNumber"))});
 
                 } else {
 

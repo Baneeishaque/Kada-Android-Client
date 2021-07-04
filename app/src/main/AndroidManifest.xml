@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".UserNameActivity"
+            android:exported="true" />
+        <activity
             android:name=".OtpActivity"
             android:exported="true" />
         <activity

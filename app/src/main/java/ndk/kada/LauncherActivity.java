@@ -33,25 +33,7 @@ public class LauncherActivity extends KadaActivity {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
 
-            if (Boolean.parseBoolean(applicationSharedPreferences.getString("isLoggedUserAvailable", String.valueOf(false)))) {
-
-                switch (applicationSharedPreferences.getString("loggedUserCurrentStatus", "")) {
-
-                    case "afterOtp":
-                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationRequestActivity.class);
-                        break;
-
-                    case "afterLocation":
-                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
-                        break;
-
-                    default:
-                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
-                }
-            } else {
-
-                ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LoginActivity.class);
-            }
+            KadaInitialActivityUtils.initialScreenNavigation(applicationSharedPreferences, currentActivityContext);
 
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, OtpActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDemoActivity.class);

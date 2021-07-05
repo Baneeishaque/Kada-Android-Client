@@ -15,66 +15,82 @@
     android:paddingBottom="16dp"
     tools:context=".StorePortalHomeActivity">
 
-    <TextView
-        android:id="@+id/textViewWhat"
+    <ProgressBar
+
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="What you to want to shop"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/editTextSearch" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/textView16"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:fontFamily="@font/roboto_regular"
-        android:text="16 stores around you"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/recyclerViewProductCategories" />
+        android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewProductCategories"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewWhat" />
+        <TextView
+            android:id="@+id/textViewWhat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="What you to want to shop"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/editTextSearch" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewStores"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView16" />
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="16 stores around you"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/recyclerViewProductCategories" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewProductCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewWhat" />
 
-        android:id="@+id/floatingActionButtonAddStore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/apricotPeach"
-        android:contentDescription="TODO"
-        android:src="@android:drawable/ic_menu_add"
-        app:borderWidth="0dp"
-        app:layout_anchor="@id/recyclerViewProductCategories"
-        app:layout_anchorGravity="bottom|right|end"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewStores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView16" />
 
-    <include layout="@layout/widget_search_box" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/floatingActionButtonAddStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/apricotPeach"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/ic_menu_add"
+            app:borderWidth="0dp"
+            app:layout_anchor="@id/recyclerViewProductCategories"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <include layout="@layout/widget_search_box" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <!--</ScrollView>-->

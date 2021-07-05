@@ -1,19 +1,24 @@
 package ndk.kada;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.lang.reflect.Array;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import ndk.utils_android1.ActivityUtils1;
+import ndk.utils_android14.HttpApiSelectTaskWrapper14;
+import ndk.utils_android16.SharedPreferenceUtils16;
+import ndk.utils_android19.ExceptionUtils19;
 
 public class StorePortalHomeActivity extends KadaActivity {
 
@@ -51,6 +56,19 @@ public class StorePortalHomeActivity extends KadaActivity {
 
         FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
         floatingActionButtonAddStore.setOnClickListener(v -> {
+
+            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopForUserApiUrl(), new Pair[]{new Pair<>("shopOwnerId", applicationSharedPreferences.getString("userId", "0"))}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
+
+                try {
+
+                    JSONObject storeJsonObject = jsonArray.getJSONObject(1);
+                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", storeJsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", storeJsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", storeJsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>("userShopId", storeJsonObject.getString("shop_id"))});
+
+                } catch (JSONException jsonException) {
+
+                    ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+                }
+            });
 
             if (Boolean.parseBoolean(applicationSharedPreferences.getString("isUserStoreAlreadyAvailable", String.valueOf(false)))) {
 

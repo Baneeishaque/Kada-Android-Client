@@ -1,18 +1,17 @@
 package ndk.kada;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import org.javatuples.Pair;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -73,34 +72,42 @@ public class LocationRequestActivity extends KadaActivity {
                         org.javatuples.Pair<Boolean, EditText> validationResult = ValidationUtils16.nonEmptyCheckEditTextPairs(editTextErrorPairs);
                         if (validationResult.getValue0()) {
 
-                            String userMobileNumber = getIntent().getStringExtra("userMobileNumber");
+                            String userMobileNumber = getIntent().getExtras() != null ? getIntent().getStringExtra("userMobileNumber") : applicationSharedPreferences.getString("userMobileNumber", "0");
                             String userName = editTextUserName.getText().toString().trim();
                             String userLatitude = String.valueOf(userLocation.getLatitude());
                             String userLongitude = String.valueOf(userLocation.getLongitude());
-
-                            applicationLogUtils.debugOnGui("API Data : User - " + userMobileNumber + ", Name : " + userName + ", Latitude : " + userLatitude + ", Longitude : " + userLongitude);
-
-                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
 
                             HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertUserAccountApiUrl(), new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userLocationLatitude", userLatitude), new androidx.core.util.Pair<>("userLocationLongitude", userLongitude)}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
 
                                 try {
 
-                                    if (jsonObject.getString("status").equals("0")) {
+                                    switch (jsonObject.getString("status")) {
 
+                                        case "0":
+                                        case "2":
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
-                                        SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("userId")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
-                                        ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
+                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                                            break;
 
-                                    } else if (jsonObject.getString("status").equals("1")) {
+                                        case "3":
+//                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", jsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", jsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", jsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("userShopCategories", jsonObject.getString("userShopCategories")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>("userShopId", jsonObject.getString("shop_id"))});
+                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                                            break;
 
-                                        //TODO : Toast With Logging Process
-                                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
-                                        applicationLogUtils.debugOnGui("Server Error : " + jsonObject.getString("error"));
+                                        case "1":
+                                            //TODO : Toast With Logging Process
+                                            ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
+                                            applicationLogUtils.debugOnGui("Server Error : " + jsonObject.getString("error"));
+                                            break;
 
-                                    } else {
+                                        default:
+                                            ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
 
-                                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
                                     }
                                 } catch (JSONException jsonException) {
 

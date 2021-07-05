@@ -129,6 +129,8 @@ dependencies {
 
     implementation project(path: ':Utils19:common19')
 
+    implementation project(path: ':DebugUtils:common')
+
     implementation 'com.mikhaellopez:circleview:1.4.0'
 
     testImplementation 'junit:junit:4.13.2'

@@ -32,22 +32,6 @@ public class KadaApiUtils extends ApiUtils {
         return ServerEndPoint.serverAddressProtocol;
     }
 
-//    String getLoginApiUrl() {
-//
-////        return getApiMethodEndpointUrl("login.php");
-//        return getApiMethodEndpointUrl("getLogin");
-//    }
-
-//    String getSignUpApiUrl() {
-//
-//        return getApiMethodEndpointUrl("signup.php");
-//    }
-
-//    String getGroupsApiUrl() {
-//
-//        return getApiMethodEndpointUrl("getGroups");
-//    }
-
     String getInsertUserAccountApiUrl() {
 
         return getApiMethodEndpointUrl("insertUserAccount");
@@ -61,5 +45,20 @@ public class KadaApiUtils extends ApiUtils {
     String getShopCategoriesApiUrl() {
 
         return getApiMethodEndpointUrl("getShopCategories");
+    }
+
+    String getShopForUserApiUrl() {
+
+        return getApiMethodEndpointUrl("getShopForUser");
+    }
+
+    String getCategoriesForShopApiUrl() {
+
+        return getApiMethodEndpointUrl("getCategoriesForShop");
+    }
+
+    String getUserForMobileNumberApiUrl() {
+
+        return getApiMethodEndpointUrl("getUserForMobileNumber");
     }
 }

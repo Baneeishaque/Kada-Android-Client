@@ -44,11 +44,11 @@ public class ShopDetailsActivity extends KadaActivity {
          *
          *  Using MultiSpinnerSearch class
          */
-        MultiSpinnerSearch multiSelectSpinnerWithSearch = findViewById(R.id.multiSpinnerSearchCategories);
-        multiSelectSpinnerWithSearch.setColorSeparation(true);
-        multiSelectSpinnerWithSearch.setHintText("Select Shop Categories");
+        MultiSpinnerSearch multiSelectSpinnerCategory = findViewById(R.id.multiSpinnerSearchCategories);
+        multiSelectSpinnerCategory.setColorSeparation(true);
+
         // Pass true If you want searchView above the list. Otherwise false. default = true.
-        multiSelectSpinnerWithSearch.setSearchEnabled(false);
+        multiSelectSpinnerCategory.setSearchEnabled(false);
 
         ArrayList<KeyPairBoolData> categories = new ArrayList<>();
 //        categories.add(new KeyPairBoolData("C1", false));
@@ -77,7 +77,7 @@ public class ShopDetailsActivity extends KadaActivity {
 
         // If you want to pass preselected items, you can do it while making listArray,
         // pass true in setSelected of any item that you want to preselect
-        multiSelectSpinnerWithSearch.setItems(categories, items -> {
+        multiSelectSpinnerCategory.setItems(categories, items -> {
 
             for (int i = 0; i < items.size(); i++) {
 
@@ -97,13 +97,13 @@ public class ShopDetailsActivity extends KadaActivity {
             if (validationResult.getValue0()) {
 
                 //TODO : Extract to Utils
-                if (multiSelectSpinnerWithSearch.getSelectedItems().size() == 0) {
+                if (multiSelectSpinnerCategory.getSelectedItems().size() == 0) {
 
                     ToastUtils1.longToast(currentApplicationContext, "Please select your shop category...");
 
                 } else {
 
-                    List<Long> selectedCategories = multiSelectSpinnerWithSearch.getSelectedIds();
+                    List<Long> selectedCategories = multiSelectSpinnerCategory.getSelectedIds();
                     selectedCategoryIds = new StringBuilder();
                     for (int i = 0; i < selectedCategories.size(); i++) {
 
@@ -130,7 +130,7 @@ public class ShopDetailsActivity extends KadaActivity {
                             if (jsonObject.getString("status").equals("0")) {
 
                                 ToastUtils1.longToast(currentApplicationContext, "Shop Added Successfully...");
-                                SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", editTextShopName.getText().toString()), new androidx.core.util.Pair<>("userShopLocationLatitude", userShopLocationLatitude), new androidx.core.util.Pair<>("userShopLocationLongitude", userShopLocationLongitude), new androidx.core.util.Pair<>("userShopCategories", selectedCategoryIds), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true))});
+                                SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", editTextShopName.getText().toString()), new androidx.core.util.Pair<>("userShopLocationLatitude", userShopLocationLatitude), new androidx.core.util.Pair<>("userShopLocationLongitude", userShopLocationLongitude), new androidx.core.util.Pair<>("userShopCategories", selectedCategoryIds), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>("userShopId", jsonObject.getString("shopId"))});
 
                                 ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
 

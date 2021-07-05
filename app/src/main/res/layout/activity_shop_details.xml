@@ -145,7 +145,7 @@
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/_60dp_rounded_rose_corner"
-            app:hintText="Multi Item Selection"
+            app:hintText="Select Shop Categories"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textViewSelectYour" />

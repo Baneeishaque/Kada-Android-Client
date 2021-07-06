@@ -33,7 +33,7 @@ public class LauncherActivity extends KadaActivity {
         Handler handler = new Handler();
         handler.postDelayed(() -> {
 
-//            KadaInitialActivityUtils.initialScreenNavigation(applicationSharedPreferences, currentActivityContext);
+            KadaInitialActivityUtils.initialScreenNavigation(applicationSharedPreferences, currentActivityContext);
 
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, OtpActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDemoActivity.class);
@@ -43,7 +43,9 @@ public class LauncherActivity extends KadaActivity {
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreDashboardActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, AddStoreProductActivity.class);
 //            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreStockActivity.class);
-            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, MapsActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, MapsActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, ShopItemAdditionActivity.class);
+//            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, SurroundingsPlottedActivity.class);
 
         }, 500);
     }

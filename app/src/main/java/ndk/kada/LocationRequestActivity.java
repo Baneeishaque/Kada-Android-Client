@@ -88,7 +88,8 @@ public class LocationRequestActivity extends KadaActivity {
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
-                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+//                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, SurroundingsPlottedActivity.class);
                                             break;
 
                                         case "3":
@@ -96,7 +97,8 @@ public class LocationRequestActivity extends KadaActivity {
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", jsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", jsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", jsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("userShopCategories", jsonObject.getString("userShopCategories")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>("userShopId", jsonObject.getString("shop_id"))});
-                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+//                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
+                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, SurroundingsPlottedActivity.class);
                                             break;
 
                                         case "1":

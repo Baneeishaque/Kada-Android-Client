@@ -13,6 +13,8 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_60dp_rounded_rose_corner.xml" value="0.227" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_60dp_rounded_silver_chalice_corner.xml" value="0.227" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_90dp_rounded_corner.xml" value="0.138" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/circle.xml" value="0.228" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/rectangle.xml" value="0.228" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/right_rounded_corner.xml" value="0.227" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/shape_button.xml" value="0.227" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/layout/recyclerview_with_toolbar_and_progressbar.xml" value="0.25416666666666665" />
@@ -38,6 +40,7 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_surroundings_plotted.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_stock.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/product_category_grid_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/product_image_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/store_list_item.xml" value="0.4" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/widget_horizontal_view_with_text_and_button.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/widget_search_box.xml" value="0.25416666666666665" />

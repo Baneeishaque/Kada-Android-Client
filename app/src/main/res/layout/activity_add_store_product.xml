@@ -171,6 +171,21 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ediTextItemVariants" />
 
+            <android.widget.Button
+                android:id="@+id/buttonProceedToStock"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Proceed To Stock"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonAddItem" />
+
             <androidx.recyclerview.widget.RecyclerView
 
                 android:id="@+id/recyclerViewProductImages"

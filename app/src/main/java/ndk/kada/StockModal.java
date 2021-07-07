@@ -2,12 +2,22 @@ package ndk.kada;
 
 public class StockModal {
 
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
+    int itemId;
     String itemName;
     float itemMaximumRetailPrice, itemSellingPrice;
     boolean isInStock;
 
-    public StockModal(String itemName, float itemMaximumRetailPrice, float itemSellingPrice, boolean isInStock) {
+    public StockModal(int itemId, String itemName, float itemMaximumRetailPrice, float itemSellingPrice, boolean isInStock) {
 
+        this.itemId = itemId;
         this.itemName = itemName;
         this.itemMaximumRetailPrice = itemMaximumRetailPrice;
         this.itemSellingPrice = itemSellingPrice;

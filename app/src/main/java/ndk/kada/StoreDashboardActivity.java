@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import ndk.utils_android1.ActivityUtils1;
+import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
 
 public class StoreDashboardActivity extends KadaActivity {
@@ -19,6 +20,6 @@ public class StoreDashboardActivity extends KadaActivity {
         textViewWelcome.setText("Welcome to " + applicationSharedPreferences.getString("userShopName", "Kada X"));
 
         //TODO : Associate Start Activity
-        ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonAddYour, v -> ActivityUtils1.startActivityForClass(currentActivityContext, AddStoreProductActivity.class));
+        ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonManageStock, v -> ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreStockActivity.class));
     }
 }

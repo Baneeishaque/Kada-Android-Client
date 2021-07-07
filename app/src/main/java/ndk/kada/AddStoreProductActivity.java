@@ -32,12 +32,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
 import ndk.utils_android14.HttpApiSelectTask14;
 import ndk.utils_android14.HttpApiSelectTaskWrapper14;
-import ndk.utils_android16.SharedPreferenceUtils16;
 import ndk.utils_android19.ExceptionUtils19;
 
 public class AddStoreProductActivity extends KadaActivity {
@@ -80,16 +80,6 @@ public class AddStoreProductActivity extends KadaActivity {
             }
         });
 
-//        KeyPairBoolData keyPairBoolData = new KeyPairBoolData("C1", false);
-//        keyPairBoolData.setId(25);
-//        keyPairBoolData.setObject("0");
-//        categories.add(keyPairBoolData);
-//
-//        keyPairBoolData = new KeyPairBoolData("C2", false);
-//        keyPairBoolData.setId(26);
-//        keyPairBoolData.setObject("1");
-//        categories.add(keyPairBoolData);
-
         ImageButton imageButtonCamera = findViewById(R.id.imageButtonCamera);
         RecyclerView recyclerViewProductImages = (RecyclerView) findViewById(R.id.recyclerViewProductImages);
         ProductImageRecyclerViewAdaptor productImageRecyclerViewAdaptor = new ProductImageRecyclerViewAdaptor(currentActivityContext, productImages);
@@ -119,33 +109,38 @@ public class AddStoreProductActivity extends KadaActivity {
             }
         });
 
-        ActivityResultLauncher<Intent> launcher =
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
-                    if (result.getResultCode() == RESULT_OK) {
+        ActivityResultLauncher<Intent> productImagePicker = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
 
-                        Uri uri = result.getData().getData();
-                        // Use the uri to load the image
-                        try {
-                            productImages.add(new ProductImageModel(Drawable.createFromStream(getContentResolver().openInputStream(uri), uri.toString())));
-                            productImageRecyclerViewAdaptor.notifyDataSetChanged();
-                            recyclerViewProductImages.setVisibility(View.VISIBLE);
+            if (result.getResultCode() == RESULT_OK) {
 
-                        } catch (FileNotFoundException e) {
+                Uri uri = result.getData().getData();
 
-                            e.printStackTrace();
-                        }
+                // Use the uri to load the image
+                try {
 
-                    } else if (result.getResultCode() == ImagePicker.RESULT_ERROR) {
-                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
-                        ToastUtils1.longToast(currentApplicationContext, ImagePicker.getError(result.getData()));
-                    } else {
-                        ToastUtils1.errorToast(currentApplicationContext);
-                    }
-                });
+                    productImages.add(new ProductImageModel(Drawable.createFromStream(getContentResolver().openInputStream(uri), uri.toString())));
+                    productImageRecyclerViewAdaptor.notifyDataSetChanged();
+                    recyclerViewProductImages.setVisibility(View.VISIBLE);
+
+                } catch (FileNotFoundException e) {
+
+                    e.printStackTrace();
+                }
+
+            } else if (result.getResultCode() == ImagePicker.RESULT_ERROR) {
+
+                // Use ImagePicker.Companion.getError(result.getData()) to show an error
+                ToastUtils1.longToast(currentApplicationContext, ImagePicker.getError(result.getData()));
+
+            } else {
+
+                ToastUtils1.errorToast(currentApplicationContext);
+            }
+        });
 
         imageButtonCamera.setOnClickListener(v -> {
 
-            launcher.launch(ImagePicker.with(currentAppCompatActivity)
+            productImagePicker.launch(ImagePicker.with(currentAppCompatActivity)
                     .crop()
                     .galleryOnly() //User can only select image from Gallery
                     .cropFreeStyle()
@@ -155,23 +150,6 @@ public class AddStoreProductActivity extends KadaActivity {
         });
 
         ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonAddItem, v -> {
-
-//            Pair<String, String>[] httpParameters = new Pair[8 + productImages.size()];
-//            httpParameters[0] = new Pair<>("itemName", ((EditText) findViewById(R.id.ediTextItemName)).getText().toString().trim());
-//            httpParameters[1] = new Pair<>("itemMaximumRetailPrice", ((EditText) findViewById(R.id.ediTextItemMaximumRetailPrice)).getText().toString().trim());
-//            httpParameters[2] = new Pair<>("itemSellingPrice", ((EditText) findViewById(R.id.ediTextItemSellingPrice)).getText().toString().trim());
-//            httpParameters[3] = new Pair<>("itemCategory", singleSpinnerCategory.getSelectedIds().get(0).toString());
-//            httpParameters[4] = new Pair<>("itemDescription", ((EditText) findViewById(R.id.ediTextItemDescription)).getText().toString().trim());
-//            httpParameters[5] = new Pair<>("itemVariants", ((EditText) findViewById(R.id.ediTextItemVariants)).getText().toString().trim());
-//            httpParameters[6] = new Pair<>("itemShopId", userShopId);
-//            httpParameters[7] = new Pair<>("itemImageCount", String.valueOf(productImages.size()));
-//            for (int i = 0; i < productImages.size(); i++) {
-//
-//                Bitmap bitmap = drawableToBitmap(productImages.get(i).getImageDrawable());
-//                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStreamObject);
-//                byte[] byteArrayVar = byteArrayOutputStreamObject.toByteArray();
-//                httpParameters[8 + i] = new Pair<>("itemImage" + i, Base64.encodeToString(byteArrayVar, Base64.DEFAULT));
-//            }
 
             ArrayList<org.javatuples.Pair<String, String>> httpParametersInJavaTuples = new ArrayList<>();
             httpParametersInJavaTuples.add(org.javatuples.Pair.with("itemName", ((EditText) findViewById(R.id.ediTextItemName)).getText().toString().trim()));
@@ -217,22 +195,10 @@ public class AddStoreProductActivity extends KadaActivity {
             });
         });
 
-//        ArrayList<ProductImageModel> imageModelArrayList = eatFruits();
-//        ProductImageRecyclerViewAdaptor adapter = new ProductImageRecyclerViewAdaptor(this, imageModelArrayList);
-//        recyclerViewProductImages.setAdapter(adapter);
-//        recyclerViewProductImages.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
-//        recyclerView.setVisibility(View.VISIBLE);
-
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.apple)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.mango)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.straw)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.pineapple)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.orange)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.blue)));
-//        productImages.add(new ProductImageModel(AppCompatResources.getDrawable(currentActivityContext, R.drawable.water)));
-
         recyclerViewProductImages.setAdapter(productImageRecyclerViewAdaptor);
         recyclerViewProductImages.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false));
+
+        ButtonUtils14.associateClickAction(currentAppCompatActivity, R.id.buttonProceedToStock, v -> ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StoreStockActivity.class));
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
@@ -248,7 +214,9 @@ public class AddStoreProductActivity extends KadaActivity {
         }
 
         if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
+
+            // Single color bitmap will be created of 1x1 pixel
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         } else {
             bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
         }
@@ -258,19 +226,4 @@ public class AddStoreProductActivity extends KadaActivity {
         drawable.draw(canvas);
         return bitmap;
     }
-
-//    int[] productImages = new int[]{R.drawable.apple, R.drawable.mango, R.drawable.straw, R.drawable.pineapple, R.drawable.orange, R.drawable.blue, R.drawable.water};
-
-//    private ArrayList<ProductImageModel> eatFruits() {
-//
-//        ArrayList<ProductImageModel> list = new ArrayList<>();
-//
-//        for (int i = 0; i < 7; i++) {
-//
-//            ProductImageModel fruitModel = new ProductImageModel(productImages[i]);
-//            list.add(fruitModel);
-//        }
-//
-//        return list;
-//    }
 }

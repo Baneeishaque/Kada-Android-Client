@@ -34,16 +34,17 @@ public class StockListRecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerV
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        StockModal stock = stocks.get(position);
+        StockModal itemStock = stocks.get(position);
         StockListRecyclerViewHolder stockListRecyclerViewHolder = (StockListRecyclerViewHolder) holder;
 
-        stockListRecyclerViewHolder.textViewItemName.setText(stock.getItemName());
+        stockListRecyclerViewHolder.textViewItemName.setText(itemStock.getItemName());
         stockListRecyclerViewHolder.textViewIndianRupeeSymbolItemMaximumRetailPrice.setPaintFlags(stockListRecyclerViewHolder.textViewIndianRupeeSymbolItemMaximumRetailPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        stockListRecyclerViewHolder.textViewItemMaximumRetailPrice.setText(String.valueOf(stock.getItemMaximumRetailPrice()));
+        stockListRecyclerViewHolder.textViewItemMaximumRetailPrice.setText(String.valueOf(itemStock.getItemMaximumRetailPrice()));
         stockListRecyclerViewHolder.textViewItemMaximumRetailPrice.setPaintFlags(stockListRecyclerViewHolder.textViewItemMaximumRetailPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        stockListRecyclerViewHolder.textViewItemSellingPrice.setText(String.valueOf(stock.getItemSellingPrice()));
+        stockListRecyclerViewHolder.textViewItemSellingPrice.setText(String.valueOf(itemStock.getItemSellingPrice()));
 
-        if (stock.isInStock()) {
+        stockListRecyclerViewHolder.switchItemStockOnOff.setTag(itemStock.itemId);
+        if (itemStock.isInStock()) {
 
             stockListRecyclerViewHolder.textViewItemStockOnOff.setText("In Stock");
             stockListRecyclerViewHolder.switchItemStockOnOff.setChecked(true);
@@ -84,7 +85,14 @@ public class StockListRecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerV
             textViewItemStockOnOff = itemView.findViewById(R.id.textViewItemStockOnOff);
             switchItemStockOnOff = itemView.findViewById(R.id.switchItemStockOnOff);
 
-            switchItemStockOnOff.setOnClickListener(v -> onSwitchItemStockOnOffClickListener.onSwitchItemStockOnOffClick(switchItemStockOnOff, textViewItemStockOnOff));
+            switchItemStockOnOff.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    onSwitchItemStockOnOffClickListener.onSwitchItemStockOnOffClick(switchItemStockOnOff, textViewItemStockOnOff);
+                }
+            });
         }
     }
 

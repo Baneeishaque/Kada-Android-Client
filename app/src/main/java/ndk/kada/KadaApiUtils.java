@@ -47,6 +47,11 @@ public class KadaApiUtils extends ApiUtils {
         return getApiMethodEndpointUrl("insertShopItem");
     }
 
+    String getUpdateStockForItemApiUrl() {
+
+        return getApiMethodEndpointUrl("updateStockForItem");
+    }
+
     String getShopCategoriesApiUrl() {
 
         return getApiMethodEndpointUrl("getShopCategories");
@@ -60,6 +65,11 @@ public class KadaApiUtils extends ApiUtils {
     String getCategoriesForShopApiUrl() {
 
         return getApiMethodEndpointUrl("getCategoriesForShop");
+    }
+
+    String getItemsForShopApiUrl() {
+
+        return getApiMethodEndpointUrl("getItemsForShop");
     }
 
     String getUserForMobileNumberApiUrl() {

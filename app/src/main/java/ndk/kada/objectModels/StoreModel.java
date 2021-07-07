@@ -2,15 +2,25 @@ package ndk.kada.objectModels;
 
 public class StoreModel {
 
+    int storeId;
     String storeName;
     float storeRating;
     float storeAverageDeliveryTime;
 
-    public StoreModel(String storeName, float storeRating, float storeAverageDeliveryTime) {
+    public StoreModel(int storeId, String storeName, float storeRating, float storeAverageDeliveryTime) {
 
+        this.storeId = storeId;
         this.storeName = storeName;
         this.storeRating = storeRating;
         this.storeAverageDeliveryTime = storeAverageDeliveryTime;
+    }
+
+    public int getStoreId() {
+        return storeId;
+    }
+
+    public void setStoreId(int storeId) {
+        this.storeId = storeId;
     }
 
     public String getStoreName() {

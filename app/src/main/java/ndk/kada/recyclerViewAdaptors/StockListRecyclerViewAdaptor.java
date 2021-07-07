@@ -88,14 +88,7 @@ public class StockListRecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerV
             textViewItemStockOnOff = itemView.findViewById(R.id.textViewItemStockOnOff);
             switchItemStockOnOff = itemView.findViewById(R.id.switchItemStockOnOff);
 
-            switchItemStockOnOff.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-
-                    onSwitchItemStockOnOffClickListener.onSwitchItemStockOnOffClick(switchItemStockOnOff, textViewItemStockOnOff);
-                }
-            });
+            switchItemStockOnOff.setOnClickListener(v -> onSwitchItemStockOnOffClickListener.onSwitchItemStockOnOffClick(switchItemStockOnOff, textViewItemStockOnOff));
         }
     }
 

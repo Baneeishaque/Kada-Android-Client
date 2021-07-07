@@ -15,6 +15,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ndk.kada.KadaSharedPreferenceKeys;
 import ndk.kada.utils.KadaApiUtils;
 import ndk.kada.recyclerViewAdaptors.ProductCategoryGridRecyclerViewAdaptor;
 import ndk.kada.R;
@@ -45,6 +46,16 @@ public class StorePortalHomeActivity extends KadaActivity {
 //        productCategoryNames.add("Fish");
 //        productCategoryNames.add("Home Made");
 
+        RecyclerView recyclerViewStoreList = findViewById(R.id.recyclerViewStores);
+        recyclerViewStoreList.setLayoutManager(new LinearLayoutManager(this));
+
+        ArrayList<StoreModel> stores = new ArrayList<>();
+//        stores.add(new StoreModel("Georgettante Kada", 4.5F, 1));
+//        stores.add(new StoreModel("Georgettante2 Kada", 2.5F, 2));
+//        stores.add(new StoreModel("Georgettante Kada", 5, 0.5F));
+//        stores.add(new StoreModel("Georgettante Kada", 3.5F, 1));
+//        stores.add(new StoreModel("Georgettante Kada", 3, 0.45F));
+
         HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopCategoriesApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
 
             try {
@@ -61,6 +72,38 @@ public class StorePortalHomeActivity extends KadaActivity {
                     categoryIndex++;
                 }
 
+                HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopsApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray2 -> {
+
+                    try {
+
+                        for (int i = 1; i < jsonArray2.length(); i++) {
+
+                            JSONObject jsonObject = jsonArray2.getJSONObject(i);
+                            stores.add(new StoreModel(Integer.parseInt(jsonObject.getString("shop_id")), jsonObject.getString("shop_name"), 4.5F, 1));
+                        }
+                        int storeIndex = 1;
+                        while (stores.size() < 4) {
+
+                            stores.add(new StoreModel(0, "Store " + storeIndex, 4.5F, 1));
+                            storeIndex++;
+                        }
+
+                    } catch (JSONException jsonException) {
+
+                        ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+                    }
+                });
+
+                StoreListRecyclerViewAdaptor storeListRecyclerViewAdaptor = new StoreListRecyclerViewAdaptor(currentActivityContext, stores);
+                storeListRecyclerViewAdaptor.setOnItemClickListener(textViewStoreName -> {
+
+                    StoreModel selectedStore = (StoreModel) textViewStoreName.getTag();
+                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new Pair[]{new Pair<>(KadaSharedPreferenceKeys.selectedStoreName, selectedStore.getStoreName()), new Pair<>(KadaSharedPreferenceKeys.selectedStoreRating, String.valueOf(selectedStore.getStoreRating())), new Pair<>(KadaSharedPreferenceKeys.selectedStoreAverageDeliveryTime, String.valueOf(selectedStore.getStoreAverageDeliveryTime())), new Pair<>(KadaSharedPreferenceKeys.selectedStoreId, String.valueOf(selectedStore.getStoreId()))});
+                    ActivityUtils1.startActivityForClass(currentActivityContext, ShopItineraryActivity.class);
+                });
+
+                recyclerViewStoreList.setAdapter(storeListRecyclerViewAdaptor);
+
             } catch (JSONException jsonException) {
 
                 ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
@@ -68,40 +111,6 @@ public class StorePortalHomeActivity extends KadaActivity {
         });
 
         recyclerViewProductCategoryGrid.setAdapter(new ProductCategoryGridRecyclerViewAdaptor(currentActivityContext, productCategoryNames));
-
-        RecyclerView recyclerViewStoreList = findViewById(R.id.recyclerViewStores);
-        recyclerViewStoreList.setLayoutManager(new LinearLayoutManager(this));
-
-        ArrayList<StoreModel> stores = new ArrayList<>();
-//        stores.add(new StoreModel("Georgettante Kada", 4.5F, 1));
-//        stores.add(new StoreModel("Georgettante2 Kada", 2.5F, 2));
-//        stores.add(new StoreModel("Georgettante Kada", 5, 0.5F));
-//        stores.add(new StoreModel("Georgettante Kada", 3.5F, 1));
-//        stores.add(new StoreModel("Georgettante Kada", 3, 0.45F));
-
-        HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopsApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
-
-            try {
-
-                for (int i = 1; i < jsonArray.length(); i++) {
-
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    stores.add(new StoreModel(jsonObject.getString("shop_name"), 4.5F, 1));
-                }
-                int storeIndex = 1;
-                while (stores.size() < 4) {
-
-                    stores.add(new StoreModel("Store " + storeIndex, 4.5F, 1));
-                    storeIndex++;
-                }
-
-            } catch (JSONException jsonException) {
-
-                ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
-            }
-        });
-
-        recyclerViewStoreList.setAdapter(new StoreListRecyclerViewAdaptor(currentActivityContext, stores));
 
         FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
         floatingActionButtonAddStore.setOnClickListener(v -> {

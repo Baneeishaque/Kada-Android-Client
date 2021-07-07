@@ -1,6 +1,7 @@
 package ndk.kada.recyclerViewAdaptors;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,47 +12,46 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import ndk.kada.objectModels.ProductImageModel;
 import ndk.kada.R;
 
-public class ProductImageRecyclerViewAdaptor extends RecyclerView.Adapter<ProductImageRecyclerViewAdaptor.ProductImageViewHolder> {
+public class ImageViewRecyclerViewAdaptor extends RecyclerView.Adapter<ImageViewRecyclerViewAdaptor.ProductImageViewHolder> {
 
     LayoutInflater layoutInflater;
-    ArrayList<ProductImageModel> productImages;
+    ArrayList<Drawable> images;
 
-    public ProductImageRecyclerViewAdaptor(Context context, ArrayList<ProductImageModel> productImages) {
+    public ImageViewRecyclerViewAdaptor(Context context, ArrayList<Drawable> images) {
 
         layoutInflater = LayoutInflater.from(context);
-        this.productImages = productImages;
+        this.images = images;
     }
 
     @NonNull
     @Override
     public ProductImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new ProductImageViewHolder(layoutInflater.inflate(R.layout.list_item_product_image, parent, false));
+        return new ProductImageViewHolder(layoutInflater.inflate(R.layout.list_item_image_view, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductImageViewHolder holder, int position) {
 
-        holder.imageViewProduct.setImageDrawable(productImages.get(position).getImageDrawable());
+        holder.imageView.setImageDrawable(images.get(position));
     }
 
     @Override
     public int getItemCount() {
 
-        return productImages.size();
+        return images.size();
     }
 
     static class ProductImageViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageViewProduct;
+        ImageView imageView;
 
         public ProductImageViewHolder(@NonNull View itemView) {
 
             super(itemView);
-            imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
+            imageView = itemView.findViewById(R.id.imageView);
         }
     }
 }

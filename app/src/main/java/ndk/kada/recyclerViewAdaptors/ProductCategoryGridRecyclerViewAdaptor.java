@@ -28,7 +28,7 @@ public class ProductCategoryGridRecyclerViewAdaptor extends RecyclerView.Adapter
     @Override
     public ProductCategoryGridRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        return new ProductCategoryGridRecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.product_category_grid_item, parent, false));
+        return new ProductCategoryGridRecyclerViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_item_product_category, parent, false));
     }
 
     @Override

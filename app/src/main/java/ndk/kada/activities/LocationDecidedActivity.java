@@ -1,8 +1,9 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
 import android.os.Handler;
 
+import ndk.kada.R;
 import ndk.utils_android14.ActivityUtils14;
 
 public class LocationDecidedActivity extends KadaActivity {

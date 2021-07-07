@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ndk.kada.utils.KadaApiUtils;
+import ndk.kada.R;
+import ndk.kada.recyclerViewAdaptors.StockListRecyclerViewAdaptor;
+import ndk.kada.objectModels.StockModal;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;

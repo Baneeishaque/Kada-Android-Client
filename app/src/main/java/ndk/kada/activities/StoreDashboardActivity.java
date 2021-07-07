@@ -1,10 +1,9 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import ndk.utils_android1.ActivityUtils1;
+import ndk.kada.R;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
 

@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +15,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ndk.kada.BuildConfig;
+import ndk.kada.utils.KadaApiUtils;
+import ndk.kada.R;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;

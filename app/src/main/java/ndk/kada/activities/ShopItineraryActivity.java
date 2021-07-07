@@ -1,6 +1,8 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
+
+import ndk.kada.R;
 
 public class ShopItineraryActivity extends KadaActivity {
 

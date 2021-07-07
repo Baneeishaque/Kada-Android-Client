@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,12 +9,11 @@ import androidx.core.util.Pair;
 
 import java.util.Random;
 
-import ndk.utils_android1.ActivityUtils1;
+import ndk.kada.BuildConfig;
+import ndk.kada.R;
 import ndk.utils_android1.ProgressBarUtils1;
-import ndk.utils_android1.SharedPreferencesUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;
-import ndk.utils_android16.SharedPreferenceUtils16;
 import ndk.utils_android16.ValidationUtils16;
 import ndk.utils_android19.SendSmsFromFast2SmsNetworkTaskWithResponseParserForDk;
 

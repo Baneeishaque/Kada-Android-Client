@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.objectModels;
 
 public class StockModal {
 

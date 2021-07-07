@@ -1,7 +1,6 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -14,6 +13,9 @@ import org.json.JSONException;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import ndk.kada.utils.KadaApiUtils;
+import ndk.kada.utils.KadaInitialActivityUtils;
+import ndk.kada.R;
 import ndk.utils_android1.ProgressBarUtils1;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.HttpApiSelectTask14;

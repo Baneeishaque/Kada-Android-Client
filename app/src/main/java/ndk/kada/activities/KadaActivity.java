@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import ndk.utils_android14.ApplicationActivity14;
 

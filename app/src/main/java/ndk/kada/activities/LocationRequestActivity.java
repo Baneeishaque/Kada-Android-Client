@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.location.Location;
 import android.os.Bundle;
@@ -15,6 +15,10 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+import ndk.kada.BuildConfig;
+import ndk.kada.utils.KadaApiUtils;
+import ndk.utils_android16.LocationUtils;
+import ndk.kada.R;
 import ndk.utils_android1.ProgressBarUtils1;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
@@ -32,7 +36,7 @@ public class LocationRequestActivity extends KadaActivity {
     private static final int PERMISSION_REQUEST_CODE = 0;
 
     boolean myLocationFlag = false;
-    LocationUtils locationUtils = new LocationUtils();
+    LocationUtils locationUtils = new LocationUtils(applicationSpecification.applicationName);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +15,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import ndk.kada.utils.KadaApiUtils;
+import ndk.kada.recyclerViewAdaptors.ProductCategoryGridRecyclerViewAdaptor;
+import ndk.kada.R;
+import ndk.kada.recyclerViewAdaptors.StoreListRecyclerViewAdaptor;
+import ndk.kada.objectModels.StoreModel;
 import ndk.utils_android1.ActivityUtils1;
 import ndk.utils_android14.HttpApiSelectTaskWrapper14;
 import ndk.utils_android16.SharedPreferenceUtils16;

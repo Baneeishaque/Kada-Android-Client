@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.recyclerViewAdaptors;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import ndk.kada.objectModels.ProductImageModel;
+import ndk.kada.R;
 
 public class ProductImageRecyclerViewAdaptor extends RecyclerView.Adapter<ProductImageRecyclerViewAdaptor.ProductImageViewHolder> {
 

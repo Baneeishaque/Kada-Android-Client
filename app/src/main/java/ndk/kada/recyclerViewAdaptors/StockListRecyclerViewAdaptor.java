@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.recyclerViewAdaptors;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -12,6 +12,9 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import ndk.kada.R;
+import ndk.kada.objectModels.StockModal;
 
 public class StockListRecyclerViewAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -7,7 +7,8 @@ import android.os.Handler;
 import android.text.TextPaint;
 import android.widget.TextView;
 
-import ndk.utils_android14.ActivityUtils14;
+import ndk.kada.utils.KadaInitialActivityUtils;
+import ndk.kada.R;
 
 public class LauncherActivity extends KadaActivity {
 

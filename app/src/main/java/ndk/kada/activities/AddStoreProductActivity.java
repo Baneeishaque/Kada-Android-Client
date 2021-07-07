@@ -1,4 +1,4 @@
-package ndk.kada;
+package ndk.kada.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -32,7 +32,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import ndk.utils_android1.ActivityUtils1;
+import ndk.kada.utils.KadaApiUtils;
+import ndk.kada.objectModels.ProductImageModel;
+import ndk.kada.recyclerViewAdaptors.ProductImageRecyclerViewAdaptor;
+import ndk.kada.R;
 import ndk.utils_android1.ToastUtils1;
 import ndk.utils_android14.ActivityUtils14;
 import ndk.utils_android14.ButtonUtils14;

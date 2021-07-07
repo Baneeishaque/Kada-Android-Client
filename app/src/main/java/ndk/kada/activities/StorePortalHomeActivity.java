@@ -2,6 +2,7 @@ package ndk.kada.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,7 +16,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import ndk.kada.KadaSharedPreferenceKeys;
+import ndk.kada.constants.KadaSharedPreferenceKeys;
 import ndk.kada.utils.KadaApiUtils;
 import ndk.kada.recyclerViewAdaptors.ProductCategoryGridRecyclerViewAdaptor;
 import ndk.kada.R;
@@ -66,11 +67,12 @@ public class StorePortalHomeActivity extends KadaActivity {
                     productCategoryNames.add(jsonObject.getString("shop_category_name"));
                 }
                 int categoryIndex = 1;
-                while (productCategoryNames.size() < 6) {
+                while (productCategoryNames.size() < 5) {
 
                     productCategoryNames.add("Category " + categoryIndex);
                     categoryIndex++;
                 }
+                productCategoryNames.add("My Orders");
 
                 HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopsApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray2 -> {
 
@@ -110,7 +112,15 @@ public class StorePortalHomeActivity extends KadaActivity {
             }
         });
 
-        recyclerViewProductCategoryGrid.setAdapter(new ProductCategoryGridRecyclerViewAdaptor(currentActivityContext, productCategoryNames));
+        ProductCategoryGridRecyclerViewAdaptor productCategoryGridRecyclerViewAdaptor = new ProductCategoryGridRecyclerViewAdaptor(currentActivityContext, productCategoryNames);
+        productCategoryGridRecyclerViewAdaptor.setProductCategoryNameClickListener(textViewProductCategoryName -> {
+
+            if (Integer.parseInt(textViewProductCategoryName.getTag().toString()) == 5) {
+
+                ActivityUtils1.startActivityForClass(currentActivityContext, MyOrdersActivity.class);
+            }
+        });
+        recyclerViewProductCategoryGrid.setAdapter(productCategoryGridRecyclerViewAdaptor);
 
         FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
         floatingActionButtonAddStore.setOnClickListener(v -> {
@@ -120,7 +130,7 @@ public class StorePortalHomeActivity extends KadaActivity {
                 try {
 
                     JSONObject storeJsonObject = jsonArray.getJSONObject(1);
-                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", storeJsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", storeJsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", storeJsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>("userShopId", storeJsonObject.getString("shop_id"))});
+                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", storeJsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", storeJsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", storeJsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>(KadaSharedPreferenceKeys.userShopId, storeJsonObject.getString("shop_id"))});
 
                 } catch (JSONException jsonException) {
 

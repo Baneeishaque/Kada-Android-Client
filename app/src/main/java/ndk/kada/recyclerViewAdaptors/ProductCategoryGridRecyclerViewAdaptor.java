@@ -35,6 +35,7 @@ public class ProductCategoryGridRecyclerViewAdaptor extends RecyclerView.Adapter
     public void onBindViewHolder(@NonNull ProductCategoryGridRecyclerViewHolder holder, int position) {
 
         holder.textViewProductCategoryName.setText(productCategoryNames.get(position));
+        holder.textViewProductCategoryName.setTag(position);
     }
 
     @Override
@@ -43,7 +44,14 @@ public class ProductCategoryGridRecyclerViewAdaptor extends RecyclerView.Adapter
         return productCategoryNames.size();
     }
 
-    public static class ProductCategoryGridRecyclerViewHolder extends RecyclerView.ViewHolder {
+    public interface ProductCategoryNameClickListener {
+
+        void onProductCategoryNameClick(TextView textViewProductCategoryName);
+    }
+
+    public ProductCategoryNameClickListener productCategoryNameClickListener;
+
+    public class ProductCategoryGridRecyclerViewHolder extends RecyclerView.ViewHolder {
 
         TextView textViewProductCategoryName;
 
@@ -51,6 +59,12 @@ public class ProductCategoryGridRecyclerViewAdaptor extends RecyclerView.Adapter
 
             super(itemView);
             textViewProductCategoryName = itemView.findViewById(R.id.textViewProductCategoryName);
+            textViewProductCategoryName.setOnClickListener(v -> productCategoryNameClickListener.onProductCategoryNameClick(textViewProductCategoryName));
         }
+    }
+
+    public void setProductCategoryNameClickListener(ProductCategoryNameClickListener productCategoryNameClickListener) {
+
+        this.productCategoryNameClickListener = productCategoryNameClickListener;
     }
 }

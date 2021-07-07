@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".activities.PendingOrdersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.MyOrdersActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.ShopItineraryActivity"
             android:exported="true" />
         <!--

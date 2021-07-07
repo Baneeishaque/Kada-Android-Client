@@ -16,6 +16,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 
 import ndk.kada.BuildConfig;
+import ndk.kada.constants.KadaSharedPreferenceKeys;
 import ndk.kada.utils.KadaApiUtils;
 import ndk.utils_android16.LocationUtils;
 import ndk.kada.R;
@@ -90,7 +91,7 @@ public class LocationRequestActivity extends KadaActivity {
                                         case "0":
                                         case "2":
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, LocationDecidedActivity.class);
-                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userId", jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
+                                            SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>(KadaSharedPreferenceKeys.userId, jsonObject.getString("user_id")), new androidx.core.util.Pair<>("loggedUserCurrentStatus", "afterLocation")});
                                             SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userMobileNumber", userMobileNumber), new androidx.core.util.Pair<>("userName", userName), new androidx.core.util.Pair<>("userLatitude", userLatitude), new androidx.core.util.Pair<>("userLongitude", userLongitude)});
 //                                            ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, StorePortalHomeActivity.class);
                                             ActivityUtils14.startActivityForClassWithFinish(currentActivityContext, SurroundingsPlottedActivity.class);

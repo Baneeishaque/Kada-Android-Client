@@ -1,6 +1,6 @@
 package ndk.kada.utils;
 
-import ndk.kada.KadaServerEndPoint;
+import ndk.kada.constants.KadaServerEndPoint;
 import ndk.utils_android1.ApiUtilsWithHttpApiFolderAndFileExtension1;
 
 public class KadaApiUtils extends ApiUtilsWithHttpApiFolderAndFileExtension1 {
@@ -50,6 +50,11 @@ public class KadaApiUtils extends ApiUtilsWithHttpApiFolderAndFileExtension1 {
         return getApiMethodEndpointUrl("insertShopItem");
     }
 
+    public String getInsertShopOrderApiUrl() {
+
+        return getApiMethodEndpointUrl("insertShopOrder");
+    }
+
     public String getUpdateStockForItemApiUrl() {
 
         return getApiMethodEndpointUrl("updateStockForItem");
@@ -80,8 +85,23 @@ public class KadaApiUtils extends ApiUtilsWithHttpApiFolderAndFileExtension1 {
         return getApiMethodEndpointUrl("getItemsForShop");
     }
 
+    public String getOrdersForShopApiUrl() {
+
+        return getApiMethodEndpointUrl("getOrdersForShop");
+    }
+
+    public String getOrdersGivenByUserApiUrl() {
+
+        return getApiMethodEndpointUrl("getOrdersGivenByUser");
+    }
+
     public String getUserForMobileNumberApiUrl() {
 
         return getApiMethodEndpointUrl("getUserForMobileNumber");
+    }
+
+    public String getOrderImageUrl(int orderId) {
+
+        return getPngImageUrl("orderImages", String.valueOf(orderId));
     }
 }

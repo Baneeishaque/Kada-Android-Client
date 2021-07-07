@@ -1,9 +1,11 @@
 package ndk.kada.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,16 +28,21 @@ import com.github.drjacky.imagepicker.ImagePicker;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import ndk.kada.KadaServerJsonFields;
-import ndk.kada.KadaSharedPreferenceKeys;
+import ndk.kada.constants.KadaHttpApiDefaultValues;
+import ndk.kada.constants.KadaHttpApiParameters;
+import ndk.kada.constants.KadaServerJsonFields;
+import ndk.kada.constants.KadaSharedPreferenceKeys;
 import ndk.kada.R;
-import ndk.kada.recyclerViewAdaptors.ImageViewRecyclerViewAdaptor;
 import ndk.kada.recyclerViewAdaptors.ItineraryRecyclerViewAdaptor;
+import ndk.kada.utils.DrawableUtils;
 import ndk.kada.utils.KadaApiUtils;
 import ndk.utils_android1.ToastUtils1;
+import ndk.utils_android14.ActivityUtils14;
+import ndk.utils_android14.HttpApiSelectTask14;
 import ndk.utils_android14.HttpApiSelectTaskWrapper14;
 import ndk.utils_android19.ExceptionUtils19;
 
@@ -135,6 +142,7 @@ public class ShopItineraryActivity extends KadaActivity {
             recyclerViewUserItems.setAdapter(itineraryRecyclerViewAdaptor);
         });
 
+        ImageView imageViewScannedList = findViewById(R.id.imageViewScannedList);
         ActivityResultLauncher<Intent> productImagePicker = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), (ActivityResult result) -> {
 
             if (result.getResultCode() == RESULT_OK) {
@@ -151,13 +159,13 @@ public class ShopItineraryActivity extends KadaActivity {
 //
 //                    recyclerViewUserItems.setVisibility(View.VISIBLE);
 
-                    ImageView imageViewScannedList = findViewById(R.id.imageViewScannedList);
                     imageViewScannedList.setImageDrawable(Drawable.createFromStream(getContentResolver().openInputStream(uri), uri.toString()));
                     imageViewScannedList.setVisibility(View.VISIBLE);
 
                     ConstraintLayout.LayoutParams buttonPlaceOrderLayoutParams = (ConstraintLayout.LayoutParams) buttonPlaceOrder.getLayoutParams();
                     buttonPlaceOrderLayoutParams.topToBottom = imageViewScannedList.getId();
-                    buttonPlaceOrder.setLayoutParams(buttonPlaceOrderLayoutParams);
+                    buttonPlaceOrder.requestLayout();
+//                    buttonPlaceOrder.setLayoutParams(buttonPlaceOrderLayoutParams);
                     buttonPlaceOrder.setVisibility(View.VISIBLE);
 
                     textViewOr.setVisibility(View.GONE);
@@ -189,6 +197,52 @@ public class ShopItineraryActivity extends KadaActivity {
                     .maxResultSize(linearLayoutManager.getWidth(), 512, true)
                     .galleryMimeTypes(new String[]{"image/png", "image/jpg", "image/jpeg"})
                     .createIntent()); //Default Request Code is ImagePicker.REQUEST_CODE
+        });
+
+        buttonPlaceOrder.setOnClickListener(v -> {
+
+            ArrayList<org.javatuples.Pair<String, String>> httpParametersInJavaTuples = new ArrayList<>();
+            httpParametersInJavaTuples.add(org.javatuples.Pair.with(KadaHttpApiParameters.orderShopId, applicationSharedPreferences.getString(KadaSharedPreferenceKeys.selectedStoreId, "0")));
+            httpParametersInJavaTuples.add(org.javatuples.Pair.with(KadaHttpApiParameters.orderGivenBy, applicationSharedPreferences.getString(KadaSharedPreferenceKeys.userId, "0")));
+
+            if (imageViewScannedList.getVisibility() == View.VISIBLE) {
+
+                httpParametersInJavaTuples.add(org.javatuples.Pair.with(KadaHttpApiParameters.isOrderImagePresent, KadaHttpApiDefaultValues.orderImageIsAvailable));
+                ByteArrayOutputStream byteArrayOutputStreamObject = new ByteArrayOutputStream();
+                Bitmap bitmap = DrawableUtils.drawableToBitmap(imageViewScannedList.getDrawable());
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStreamObject);
+                httpParametersInJavaTuples.add(org.javatuples.Pair.with(KadaHttpApiParameters.orderImage, Base64.encodeToString(byteArrayOutputStreamObject.toByteArray(), Base64.DEFAULT)));
+
+            } else {
+
+                httpParametersInJavaTuples.add(org.javatuples.Pair.with(KadaHttpApiParameters.isOrderImagePresent, KadaHttpApiDefaultValues.orderImageIsNotAvailable));
+            }
+
+            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParameters(new KadaApiUtils().getInsertShopOrderApiUrl(), httpParametersInJavaTuples, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, (HttpApiSelectTask14.AsyncResponseJSONObject) jsonObject -> {
+
+                try {
+
+                    if (jsonObject.getString("status").equals("0")) {
+
+                        ToastUtils1.longToast(currentApplicationContext, "Order Added Successfully...");
+                        currentAppCompatActivity.finish();
+
+                    } else if (jsonObject.getString("status").equals("1")) {
+
+                        //TODO : Toast With Logging Process
+                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
+                        applicationLogUtils.debugOnGui("Server Error : " + jsonObject.getString("error"));
+
+                    } else {
+
+                        ToastUtils1.longToast(currentApplicationContext, "Server Error, Please Try Again...");
+                    }
+
+                } catch (JSONException jsonException) {
+
+                    ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+                }
+            });
         });
     }
 }

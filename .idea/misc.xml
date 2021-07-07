@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_20dp_rounded_silver_chalice_corner.xml" value="0.2585" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_30dp_rounded_corner.xml" value="0.227" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_5dp_rounded_corner.xml" value="0.2585" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_60dp_left_rounded_rose_corner.xml" value="0.138" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_60dp_right_rounded_rose_corner.xml" value="0.227" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/Utils19/Utils17/Utils16/Utils14/Resources/common/src/main/res/drawable/_60dp_rounded_corner.xml" value="0.227" />
@@ -34,6 +35,7 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_maps.xml" value="0.12760416666666666" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_otp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_pending_orders.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_shop_details.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_shop_item_addition.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_shop_itinerary.xml" value="0.176" />
@@ -42,6 +44,8 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_store_stock.xml" value="0.264" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_surroundings_plotted.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_image_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_model.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_order.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_stock.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_store.xml" value="0.25416666666666665" />

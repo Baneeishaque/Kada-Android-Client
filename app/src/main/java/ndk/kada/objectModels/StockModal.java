@@ -10,7 +10,7 @@ public class StockModal {
         this.itemId = itemId;
     }
 
-    int itemId;
+    public int itemId;
     String itemName;
     float itemMaximumRetailPrice, itemSellingPrice;
     boolean isInStock;

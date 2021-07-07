@@ -1,6 +1,6 @@
 package ndk.kada;
 
-public class ServerEndPoint {
+public class KadaServerEndPoint {
 
     public static final String serverAddressProtocol = "http";
     public static final String serverAddress = "192.168.225.140";

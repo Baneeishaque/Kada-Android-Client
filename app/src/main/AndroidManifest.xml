@@ -3,11 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ndk.kada">
 
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the "MyLocation" functionality.
-    -->
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kada.NoActionBar"
         tools:replace="android:allowBackup">
-
+        <activity
+            android:name=".activities.ShopItineraryActivity"
+            android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -26,47 +23,34 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <activity
-            android:name=".MapsActivity"
-            android:exported="true"
-            android:label="@string/title_activity_maps" />
-
-        <activity
-            android:name=".ShopItemAdditionActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".ShopDetailsActivity"
-            android:exported="true" />
-
-        <activity
-            android:name=".OtpActivity"
+            android:name=".activities.ShopDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".StoreStockActivity"
+            android:name=".activities.OtpActivity"
             android:exported="true" />
         <activity
-            android:name=".AddStoreProductActivity"
+            android:name=".activities.StoreStockActivity"
             android:exported="true" />
         <activity
-            android:name=".StoreDashboardActivity"
+            android:name=".activities.StoreDashboardActivity"
             android:exported="true" />
         <activity
-            android:name=".StorePortalHomeActivity"
+            android:name=".activities.StorePortalHomeActivity"
             android:exported="true" />
         <activity
-            android:name=".LocationDecidedActivity"
+            android:name=".activities.LocationDecidedActivity"
             android:exported="true" />
         <activity
-            android:name=".LocationRequestActivity"
+            android:name=".activities.LocationRequestActivity"
             android:exported="true" />
         <activity
-            android:name=".SurroundingsPlottedActivity"
+            android:name=".activities.SurroundingsPlottedActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".LauncherActivity"
+            android:name=".activities.LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,6 +58,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

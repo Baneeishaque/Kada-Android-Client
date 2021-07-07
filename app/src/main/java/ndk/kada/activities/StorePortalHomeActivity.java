@@ -33,12 +33,34 @@ public class StorePortalHomeActivity extends KadaActivity {
         recyclerViewProductCategoryGrid.setLayoutManager(gridLayoutManager);
 
         ArrayList<String> productCategoryNames = new ArrayList<>();
-        productCategoryNames.add("Grocery");
-        productCategoryNames.add("Vegetables");
-        productCategoryNames.add("Fruits");
-        productCategoryNames.add("Meats");
-        productCategoryNames.add("Fish");
-        productCategoryNames.add("Home Made");
+//        productCategoryNames.add("Grocery");
+//        productCategoryNames.add("Vegetables");
+//        productCategoryNames.add("Fruits");
+//        productCategoryNames.add("Meats");
+//        productCategoryNames.add("Fish");
+//        productCategoryNames.add("Home Made");
+
+        HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopCategoriesApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
+
+            try {
+
+                for (int i = 1; i < jsonArray.length(); i++) {
+
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    productCategoryNames.add(jsonObject.getString("shop_category_name"));
+                }
+                int categoryIndex = 1;
+                while (productCategoryNames.size() < 6) {
+
+                    productCategoryNames.add("Category " + categoryIndex);
+                    categoryIndex++;
+                }
+
+            } catch (JSONException jsonException) {
+
+                ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+            }
+        });
 
         recyclerViewProductCategoryGrid.setAdapter(new ProductCategoryGridRecyclerViewAdaptor(currentActivityContext, productCategoryNames));
 
@@ -46,11 +68,33 @@ public class StorePortalHomeActivity extends KadaActivity {
         recyclerViewStoreList.setLayoutManager(new LinearLayoutManager(this));
 
         ArrayList<StoreModel> stores = new ArrayList<>();
-        stores.add(new StoreModel("Georgettante Kada", 4.5F, 1));
-        stores.add(new StoreModel("Georgettante2 Kada", 2.5F, 2));
-        stores.add(new StoreModel("Georgettante Kada", 5, 0.5F));
-        stores.add(new StoreModel("Georgettante Kada", 3.5F, 1));
-        stores.add(new StoreModel("Georgettante Kada", 3, 0.45F));
+//        stores.add(new StoreModel("Georgettante Kada", 4.5F, 1));
+//        stores.add(new StoreModel("Georgettante2 Kada", 2.5F, 2));
+//        stores.add(new StoreModel("Georgettante Kada", 5, 0.5F));
+//        stores.add(new StoreModel("Georgettante Kada", 3.5F, 1));
+//        stores.add(new StoreModel("Georgettante Kada", 3, 0.45F));
+
+        HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithOutParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopsApiUrl(), currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
+
+            try {
+
+                for (int i = 1; i < jsonArray.length(); i++) {
+
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    stores.add(new StoreModel(jsonObject.getString("shop_name"), 4.5F, 1));
+                }
+                int storeIndex = 1;
+                while (stores.size() < 4) {
+
+                    stores.add(new StoreModel("Store " + storeIndex, 4.5F, 1));
+                    storeIndex++;
+                }
+
+            } catch (JSONException jsonException) {
+
+                ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+            }
+        });
 
         recyclerViewStoreList.setAdapter(new StoreListRecyclerViewAdaptor(currentActivityContext, stores));
 

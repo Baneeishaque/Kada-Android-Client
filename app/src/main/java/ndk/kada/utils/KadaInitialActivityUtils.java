@@ -1,8 +1,11 @@
-package ndk.kada;
+package ndk.kada.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import ndk.kada.activities.LocationRequestActivity;
+import ndk.kada.activities.LoginActivity;
+import ndk.kada.activities.StorePortalHomeActivity;
 import ndk.utils_android14.ActivityUtils14;
 
 public class KadaInitialActivityUtils {

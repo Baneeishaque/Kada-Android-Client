@@ -71,6 +71,23 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView16" />
 
+<!--        <com.dekoservidoni.omfm.OneMoreFabMenu-->
+
+<!--            android:id="@+id/fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            app:color_main_button="@color/apricotPeach"-->
+<!--            android:layout_margin="16dp"-->
+<!--            android:src="@android:drawable/ic_menu_add"-->
+<!--            app:close_on_click="true"-->
+<!--            app:content_options="@menu/omfm_content_options"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:rotate_main_button="false"-->
+<!--            app:size_main_button="@integer/omfm_fab_size_normal"-->
+<!--            app:size_secondary_buttons="@integer/omfm_fab_size_mini" />-->
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
 
             android:id="@+id/floatingActionButtonAddStore"
@@ -89,6 +106,7 @@
             app:layout_constraintRight_toRightOf="parent" />
 
         <include layout="@layout/widget_search_box" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

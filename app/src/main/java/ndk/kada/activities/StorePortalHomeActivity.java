@@ -125,27 +125,29 @@ public class StorePortalHomeActivity extends KadaActivity {
         FloatingActionButton floatingActionButtonAddStore = findViewById(R.id.floatingActionButtonAddStore);
         floatingActionButtonAddStore.setOnClickListener(v -> {
 
-            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopForUserApiUrl(), new Pair[]{new Pair<>("shopOwnerId", applicationSharedPreferences.getString("userId", "0"))}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
+//            HttpApiSelectTaskWrapper14.executeNonSplashForegroundPostWithParametersAndStatusCheckOnAsyncResponseJsonArrayFirstElement(new KadaApiUtils().getShopForUserApiUrl(), new Pair[]{new Pair<>("shopOwnerId", applicationSharedPreferences.getString("userId", "0"))}, currentActivityContext, (View) findViewById(R.id.progressBar), (View) findViewById(R.id.constraintLayout), applicationSpecification.applicationName, jsonArray -> {
+//
+//                try {
+//
+//                    JSONObject storeJsonObject = jsonArray.getJSONObject(1);
+//                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", storeJsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", storeJsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", storeJsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>(KadaSharedPreferenceKeys.userShopId, storeJsonObject.getString("shop_id"))});
+//
+//                } catch (JSONException jsonException) {
+//
+//                    ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
+//                }
+//            });
+//
+//            if (Boolean.parseBoolean(applicationSharedPreferences.getString("isUserStoreAlreadyAvailable", String.valueOf(false)))) {
+//
+//                ActivityUtils1.startActivityForClass(currentActivityContext, StoreDashboardActivity.class);
+//
+//            } else {
+//
+//                ActivityUtils1.startActivityForClass(currentActivityContext, ShopDetailsActivity.class);
+//            }
 
-                try {
-
-                    JSONObject storeJsonObject = jsonArray.getJSONObject(1);
-                    SharedPreferenceUtils16.commitSharedPreferences(applicationSharedPreferences, new androidx.core.util.Pair[]{new androidx.core.util.Pair<>("userShopName", storeJsonObject.getString("shop_name")), new androidx.core.util.Pair<>("userShopLocationLatitude", storeJsonObject.getString("shop_location_latitude")), new androidx.core.util.Pair<>("userShopLocationLongitude", storeJsonObject.getString("shop_location_longitude")), new androidx.core.util.Pair<>("isUserStoreAlreadyAvailable", String.valueOf(true)), new androidx.core.util.Pair<>(KadaSharedPreferenceKeys.userShopId, storeJsonObject.getString("shop_id"))});
-
-                } catch (JSONException jsonException) {
-
-                    ExceptionUtils19.handleExceptionOnGui(currentApplicationContext, applicationSpecification.applicationName, jsonException);
-                }
-            });
-
-            if (Boolean.parseBoolean(applicationSharedPreferences.getString("isUserStoreAlreadyAvailable", String.valueOf(false)))) {
-
-                ActivityUtils1.startActivityForClass(currentActivityContext, StoreDashboardActivity.class);
-
-            } else {
-
-                ActivityUtils1.startActivityForClass(currentActivityContext, ShopDetailsActivity.class);
-            }
+            ActivityUtils1.startActivityForClass(currentActivityContext, CartActivity.class);
         });
     }
 }

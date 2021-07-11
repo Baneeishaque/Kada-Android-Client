@@ -1,6 +1,8 @@
 plugins {
 
     id 'com.android.application'
+//    id 'kotlin-android'
+//    id 'kotlin-android-extensions'
 }
 
 android {
@@ -125,6 +127,9 @@ dependencies {
     implementation 'com.github.Drjacky:ImagePicker:2.1.12'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+//    implementation 'com.github.dekoservidoni:omfm:1.1.1'
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.71"
 
     implementation project(path: ':Utils14:common14')
     implementation project(path: ':Utils1:common1')

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PendingOrdersActivity">
+    tools:context=".activities.CartActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
@@ -27,47 +28,53 @@
             android:layout_height="match_parent">
 
             <ImageView
+
                 android:id="@+id/imageViewKadaLauncher"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="75dp"
+                android:layout_marginTop="64dp"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/kada_launcher"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <SearchView
-
-                android:id="@+id/searchView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/_10dp_rounded_corner"
-                android:iconifiedByDefault="false"
-                android:queryHint="Search your order here"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewPendingOrders" />
-
             <TextView
-                android:id="@+id/textViewPendingOrders"
+
+                android:id="@+id/textViewMyCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="Pending Orders"
+                android:gravity="center"
+                android:text="My Cart"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageViewKadaLauncher" />
 
+            <android.widget.Button
+
+                android:id="@+id/buttonCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="48dp"
+                android:background="@drawable/_60dp_rounded_corner_with_red_sandy_brown_rose_gradient"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Checkout"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerViewCart" />
+
             <androidx.recyclerview.widget.RecyclerView
 
-                android:id="@+id/recyclerViewOrders"
+                android:id="@+id/recyclerViewCart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -75,7 +82,7 @@
                 android:layout_marginEnd="16dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchView" />
+                app:layout_constraintTop_toBottomOf="@id/textViewMyCart" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

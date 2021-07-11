@@ -28,12 +28,15 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/font-v26/roboto.xml" value="0.284375" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/font/roboto.xml" value="0.284375" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_add_store_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_cart.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_launcher.xml" value="0.12760416666666666" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_location_decided.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_location_demo.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_location_request.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_maps.xml" value="0.12760416666666666" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_order_confirmation.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_order_confirmed.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_otp.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_pending_orders.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_shop_details.xml" value="0.25416666666666665" />
@@ -43,10 +46,14 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_store_portal_home.xml" value="0.24010416666666667" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_store_stock.xml" value="0.264" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/activity_surroundings_plotted.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_cart.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_cart_confirm.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_image_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_model.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_order.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_order_confirmed.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_shop_header.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_stock.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/list_item_store.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/product_category_grid_item.xml" value="0.25416666666666665" />
@@ -54,6 +61,7 @@
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/store_list_item.xml" value="0.4" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/widget_horizontal_view_with_text_and_button.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/layout/widget_search_box.xml" value="0.25416666666666665" />
+        <entry key="..\:/Banee_Data/Kada-Android-Client/app/src/main/res/menu/omfm_content_options.xml" value="0.25416666666666665" />
         <entry key="..\:/Banee_Data/To_Sync/Lab_Banee/Android_Studio/Kada-Android-Client/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.138" />
         <entry key="..\:/Banee_Data/To_Sync/Lab_Banee/Android_Studio/Kada-Android-Client/app/src/main/res/drawable/ic_launcher_background.xml" value="0.138" />
         <entry key="..\:/Banee_Data/To_Sync/Lab_Banee/Android_Studio/Kada-Android-Client/app/src/main/res/drawable/kada_launcher_gradient.xml" value="0.227" />
